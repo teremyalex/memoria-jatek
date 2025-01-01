@@ -34,7 +34,7 @@ function App() {
                 setGame(true);
             }, 3501)
         } else {
-            setCards(prevCards => prevCards.map(card => ({...card, isFlipped: false})));
+            setCards(prevCards => prevCards.map(card => ({...card, isFlipped: false, isMatched: false})));
             setTimeout(() => {
                 setCards(colors.sort(() => Math.random() - 0.5).map((color, index)=> color ? {id: index+1, value: color, isFlipped: false, isMatched: false} : null));
                 setGame(true);
