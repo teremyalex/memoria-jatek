@@ -1,0 +1,231 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+#root {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+*{
+  transition: 200ms ease-in-out;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #fdfdfd;
+}
+body.dark {
+  background: #242424;
+}
+.win{
+  color: #555;
+}
+.win.dark{
+  color: #bbb;
+}
+.switches{
+  display: flex;
+  gap: 20px;
+  padding: 0 20px;
+}
+.switch {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 65px;
+  height: 28px;
+  border: 1px solid #f1f1f1;
+  border-radius: 50px;
+  box-shadow: 2px 2px 9px inset rgba(12, 12, 13, 0.15);
+  background: #f5f5f5;
+  cursor: pointer;
+  position: relative;
+}
+.switch.dark {
+  border: 1px solid #2b2b2b;
+  box-shadow: 2px 2px 9px inset rgb(0 0 0 / 15%);
+  background: #161616;
+}
+.switch-button {
+  width: 21px;
+  height: 21px;
+  margin: 3px;
+  background: #fdfdfd;
+  border: 1px solid #f1f1f1;
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+.switch-button.dark {
+  background: #242424;
+  border: 1px solid #2b2b2b;
+}
+.switch-button.move {
+  transform: translateX(36px);
+}
+.switch-title {
+  color: #c5c5c5;
+  font-size: 13px;
+  margin: 0 8px 1px 0;
+}
+.switch-title.dark {
+  color: #4b4b4b;
+}
+.switch-title.move {
+  transform: translateX(-23px);
+}
+
+
+.ui {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 10px 20px;
+}
+.stat {
+  text-align: right;
+  color: #555;
+}
+.timer {
+  font-family: 'Roboto Mono';
+  font-size: 50px;
+  font-weight: 200;
+  font-style: italic;
+  letter-spacing: -5px;
+  line-height: 45px;
+}
+.timer.dark {
+  color: #bbb;
+}
+.counter {
+  font-size: 18px;
+  font-weight: 300;
+}
+.counter span {
+  font-family: 'Roboto Mono';
+  font-size: 22px;
+  font-weight: 200;
+  font-style: italic;
+}
+.counter.dark {
+  color: #bbb;
+}
+button {
+  background: linear-gradient(62deg, #FF658C, #FFC5FF);
+  color: white;
+  width: 120px;
+  border-radius: 8px;
+  border: none;
+  padding: 12px 0;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+button:active {
+  transform: scale(0.96);
+  transform-origin: center;
+}
+button.dark{
+  background: linear-gradient(62deg, #4f222c, #514151);
+}
+.board {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 23%;
+  aspect-ratio: 1 / 1;
+  margin: 1%;
+  border-radius: 20px;
+  border: 2px solid #f1f1f1;
+  box-shadow: 5px 4px 17px 2px inset rgba(12, 12, 13, 0.25);
+  background: #f5f5f5;
+  box-sizing: border-box;
+  cursor: pointer;
+  perspective: 500px;
+}
+.card.dark {
+  border: 2px solid #2b2b2b;
+  box-shadow: 2px 2px 9px inset rgb(0 0 0 / 15%);
+  background: #161616;
+}
+.color{
+  position: absolute;
+  width: 88%;
+  height: 88%;
+  backface-visibility: hidden;
+  border-radius: 13px;
+  transform: rotate3d(1, 1, 0, 180deg);
+  transition: transform 500ms cubic-bezier(0.42, 0, 0.53, 1.61);
+}
+.color.flip{
+  transform: rotate3d(0, 0, 0, 180deg);
+}
+.backface.flip{
+  transform: rotate3d(1, 1, 0, 180deg);
+}
+.backface{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 88%;
+  height: 88%;
+  backface-visibility: hidden;
+  border-radius: 13px;
+  background: #fdfdfd;
+  border: 1px solid #dddddd;
+  transform: rotate3d(0, 0, 0, 180deg);
+  transition: transform 500ms cubic-bezier(0.42, 0, 0.53, 1.61);
+}
+.backface img {
+  display: block;
+  width: 50%;
+  opacity: 1;
+}
+.backface.dark {
+  background: #222;
+  border: 1px solid #2b2b2b;
+}
+.backface.dark img {
+  display: block;
+  width: 50%;
+  opacity: 0.05;
+}
+@media (max-width:500px) {
+  button {
+    width: 100px;
+    border-radius: 8px;
+    padding: 10px 0;
+    font-size: 14px;
+  }
+  .timer {
+    font-size: 30px;
+    letter-spacing: -2px;
+    line-height: 22px;
+  }
+  .backface, .color {
+    border-radius: 16px;
+  }
+}
